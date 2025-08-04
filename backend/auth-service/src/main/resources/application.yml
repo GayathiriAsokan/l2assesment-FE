@@ -1,0 +1,25 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/authdb
+    username: postgres
+    password: Jeya@105637
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    serialization:
+      INDENT_OUTPUT: true
+jwt:
+  secret: "QwErTyUiOpAsDfGhJkLzXcVbNm1234567890abcd" # 40 chars, secure
+  expiration: 3600000 # 1 hour
+logging:
+  level:
+    org.springframework: INFO
+    com.yourapp: DEBUG 

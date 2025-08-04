@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS categories (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS products (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    sku VARCHAR(100) NOT NULL UNIQUE,
+    price NUMERIC(12,2) NOT NULL,
+    category_id INTEGER REFERENCES categories(id)
+);
+
+CREATE TABLE IF NOT EXISTS specifications (
+    id SERIAL PRIMARY KEY,
+    product_id INTEGER REFERENCES products(id),
+    key VARCHAR(100) NOT NULL,
+    value VARCHAR(255) NOT NULL
+); 
